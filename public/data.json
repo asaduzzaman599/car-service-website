@@ -1,11 +1,29 @@
-[
-    {"id":1,"name":"Health Cheak","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/vPd8JD7/1.jpg"},
-    {"id":2,"name":"Wheel Align","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/PxxpvJL/2.jpg"},
-    {"id":3,"name":"Engine Oil Change","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/VSGfdy1/3.jpg"},
-    {"id":4,"name":"Break Servicing","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/7QtwTPG/4.jpg"},
-    {"id":5,"name":"Danting Paingting","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/xYZqmZj/5.jpg"},
-    {"id":6,"name":"Engine Check","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/M9Rc0w6/6.jpg"}
-]
+{
+    "services":[
+        {"id":1,"name":"Health Cheak","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/vPd8JD7/1.jpg"},
+        {"id":2,"name":"Wheel Align","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/PxxpvJL/2.jpg"},
+        {"id":3,"name":"Engine Oil Change","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/VSGfdy1/3.jpg"},
+        {"id":4,"name":"Break Servicing","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/7QtwTPG/4.jpg"},
+        {"id":5,"name":"Danting Paingting","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/xYZqmZj/5.jpg"},
+        {"id":6,"name":"Engine Check","price":1000,"description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt inventore expedita doloribus ex ab quos veritatis.","img":"https://i.ibb.co/M9Rc0w6/6.jpg"}
+    ] ,
+    "experts":[
+        {"id":1,"name":"John Rock","rating":3.5,"img":"https://i.ibb.co/92PfNb1/expert-6.png"},
+        {"id":2,"name":"Smith Stives","rating":4.5,"img":"https://i.ibb.co/qjsJqPR/expert-1.jpg"},
+        {"id":3,"name":"Tammi Sidons","rating":4.8,"img":"https://i.ibb.co/2d2KbbM/expert-2.jpg"},
+        {"id":4,"name":"Abriya Kabari","rating":3.2,"img":"https://i.ibb.co/L9T0tV7/expert-3.jpg"},
+        {"id":5,"name":"Will Guy","rating":4,"img":"https://i.ibb.co/yp9b3d2/expert-4.jpg"},
+        {"id":6,"name":"Youg Bro","rating":4.7,"img":"https://i.ibb.co/dgv82xC/expert-5.jpg"}
+    
+    ]
+}
+
+
+
+
+
+
+
 
 
 
