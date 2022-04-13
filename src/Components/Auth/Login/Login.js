@@ -1,16 +1,29 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useFirebase from '../../../useFirebase';
 
 const Login = () => {
+    const{user,loginWIthEmailAndPassword}=useFirebase()
     const navigate = useNavigate()
+    const location = useLocation()
     const  emailRef = useRef('')
     const  passwordRef = useRef('')
+
     const handleForm = (event) =>{
         event.preventDefault()
-
-        console.log(emailRef,passwordRef)
+        if(emailRef && passwordRef){
+            
+        loginWIthEmailAndPassword(emailRef.current.value,passwordRef.current.value)
+        }
     }
+
+    const from = location?.state?.from?.pathname || '/';
+
+    if(user){
+        navigate(from,{replace:true})
+    }
+
     return (
         <div className='w-50 mx-auto text-start mt-5 shadow rounded p-5'>
             <h3 className='text-center'>Please Login</h3>
