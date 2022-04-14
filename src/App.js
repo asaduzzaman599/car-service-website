@@ -14,6 +14,7 @@ import { Toaster } from 'react-hot-toast';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import { createContext, useState } from 'react';
+import About from './Components/About/About';
 /**
  * 
  * 
@@ -32,6 +33,7 @@ function App() {
       <LoadingContext.Provider value={setLoading}>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/service/:serviceId' element={<ServiceDetail></ServiceDetail>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
