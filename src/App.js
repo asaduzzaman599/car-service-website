@@ -11,6 +11,8 @@ import Register from './Components/Auth/Register/Register';
 import CheckOut from './Components/CheckOut/CheckOut';
 import RequireAuth from './Components/Auth/RequireAuth/RequireAuth';
 import { Toaster } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 /**
  * 
  * 
@@ -20,6 +22,7 @@ function App() {
   return (
     <div className="App">
        <Toaster />
+       <ToastContainer />
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

@@ -1,10 +1,15 @@
-import React from 'react';
-import toast from 'react-hot-toast';
+import { async } from '@firebase/util';
+import React, { useState } from 'react';
+import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { auth } from '../../../firebase.init';
 import useFirebase from '../../../useFirebase';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import './Register.css'
 const Register = () => {
 
+    const [checked,setChecked] = useState(false)
     const { user, userCreateWithEmailAndPassword } = useFirebase()
     const navigate = useNavigate()
     if(user){
@@ -12,7 +17,8 @@ const Register = () => {
         {toast.success('User Scuccessfully Created')}
         navigate('/home')
     }
-    const handleForm = (event) => {
+    
+    const handleForm =  (event) => {
         event.preventDefault()
         const username = event.target.name.value
         const email = event.target.email.value
@@ -20,19 +26,22 @@ const Register = () => {
 
         if (email && password.length > 5) {
 
-            userCreateWithEmailAndPassword(email, password)
+             userCreateWithEmailAndPassword(email, password,username)
         }
     }
     return (
-        <div onSubmit={handleForm} className='w-75 mx-auto my-5 shadow py-4 register-form-container' >
+        <div onSubmit={handleForm} className=' mx-auto my-5 shadow py-4 register-form-container p-5' >
             <h3>Please Register</h3>
-            <form className='d-flex flex-column w-75 mx-auto py-5'>
+            <form className='d-flex flex-column mx-auto py-5'>
                 <input type="text" name='name' placeholder='Username' required />
                 <input type="email" name="email" id="" placeholder='Your Email' required />
                 <input type="password" name="password" id="" placeholder='Your Password' required />
-                <input type="submit" value="Register" />
+               <p> <input type="checkbox" name="checkbox" id="check" onChange={()=>setChecked(!checked)}  /> <label htmlFor="check" className={checked?"text-primary":''}> Accept out terms and conditions</label></p>
+                <input className='btn btn-primary rounded-pill px-4' type="submit" value="Register" disabled={checked?false:true} />
             </form>
-            <p>Already have an account? <Link to='/login'>Please Login</Link></p>
+            <p>Already have an account? <Link to='/login'>Please LogIn</Link></p>
+
+            <SocialLogin from={'/'}></SocialLogin>
         </div>
     );
 };
