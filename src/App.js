@@ -13,17 +13,23 @@ import RequireAuth from './Components/Auth/RequireAuth/RequireAuth';
 import { Toaster } from 'react-hot-toast';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import { createContext, useState } from 'react';
 /**
  * 
  * 
 
  */
+
+ export const LoadingContext = createContext([])
 function App() {
+  const [loading,setLoading] = useState(false)
+  console.log(loading)
   return (
     <div className="App">
        <Toaster />
        <ToastContainer />
       <Header></Header>
+      <LoadingContext.Provider value={setLoading}>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
@@ -37,6 +43,7 @@ function App() {
         }></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      </LoadingContext.Provider>
       <Footer></Footer>
     </div>
   );

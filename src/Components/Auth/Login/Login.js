@@ -7,10 +7,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { auth } from '../../../firebase.init';
 import useFirebase from '../../../useFirebase';
+import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css'
 const Login = () => {
-    const{user,loginWIthEmailAndPassword}=useFirebase()
+    const{user,loginWIthEmailAndPassword,loading}=useFirebase()
     const navigate = useNavigate()
     const location = useLocation()
     const  emailRef = useRef('')
@@ -48,6 +49,9 @@ const Login = () => {
         }
         
     }
+    if(loading){
+        return <Loading></Loading>
+    }
     return (
         <div className='login-form-container mx-auto text-start mt-5 shadow rounded p-5'>
             <h3 className='text-center'>Please Login</h3>
@@ -72,7 +76,7 @@ const Login = () => {
                 <p>Don't have an account? <Button variant='link' className='text-decoration-none' onClick={()=>navigate('/register')}>Regiter Now</Button></p>
                 <p> <Button variant='link' className='text-decoration-none' onClick={()=>forgetPasswordHanlde()}>Forget Password?</Button></p>
 
-                <SocialLogin from={from}></SocialLogin>
+                <SocialLogin  from={from}></SocialLogin>
         </div>
     );
 };
