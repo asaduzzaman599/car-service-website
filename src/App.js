@@ -15,6 +15,7 @@ import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import { createContext, useState } from 'react';
 import About from './Components/About/About';
+import PageTitle from './Components/Shared/PageTitle/PageTitle';
 /**
  * 
  * 
@@ -32,7 +33,7 @@ function App() {
       <Header></Header>
       <LoadingContext.Provider value={setLoading}>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/' element={<PageTitle title='Home' ><Home></Home></PageTitle>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/service/:serviceId' element={<ServiceDetail></ServiceDetail>}></Route>

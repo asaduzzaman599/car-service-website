@@ -23,7 +23,7 @@ const RequireAuth = ({ children }) => {
     }
 
 
-
+    console.log(user)
     return (
         children
     );
