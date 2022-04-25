@@ -5,6 +5,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { LoadingContext } from '../../../App';
 import { auth } from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
+import VerifyEmail from '../VarifyEmail/VerifyEmail';
 
 const RequireAuth = ({ children }) => {
     const setloading = useContext(LoadingContext)
@@ -20,6 +21,10 @@ const RequireAuth = ({ children }) => {
     if (!user) {
         { toast('Please Login') }
         return <Navigate to='/login' state={{ from: location }} replace></Navigate>
+    }
+
+    if(!user?.emailVerified){
+        return <VerifyEmail></VerifyEmail>
     }
 
 
