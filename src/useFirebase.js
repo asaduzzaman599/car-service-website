@@ -5,56 +5,59 @@ import { useUpdateProfile } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 const useFirebase = () => {
     const [user, setUser] = useState(null);
-    const [error,setError] = useState('');
+    const [error, setError] = useState('');
     const [updateProfile] = useUpdateProfile(auth);
-    const [loading,setloading] = useState(false)
+    const [loading, setloading] = useState(false)
 
-    
-    
-    const googleLogIn =() =>{
+
+
+    const googleLogIn = () => {
         setloading(true)
         const googleProveider = new GoogleAuthProvider()
-        signInWithPopup(auth,googleProveider)
-        .then(res=>setUser(res.user))
-        .catch(error=> setError(error.message))
+        signInWithPopup(auth, googleProveider)
+            .then(res => setUser(res.user))
+            .catch(error => setError(error.message))
     }
-    const githubLogIn =() =>{
+    const githubLogIn = () => {
         setloading(true)
         const githubProveider = new GithubAuthProvider()
-        signInWithPopup(auth,githubProveider)
-        .then(res=>setUser(res.user))
-        .catch(error=> setError(error.message))
+        signInWithPopup(auth, githubProveider)
+            .then(res => setUser(res.user))
+            .catch(error => setError(error.message))
     }
-    
-    const userCreateWithEmailAndPassword = (email, password,username) => {
-        
+
+    const userCreateWithEmailAndPassword = (email, password, username) => {
+
         setloading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then(async res => {
-                
-                await updateProfile({displayName:username})
+
+                await updateProfile({ displayName: username })
                 setUser(res.user)
-                sendEmailVerification(auth.currentUser).then().catch(error=>setError(error.message))
+                sendEmailVerification(auth.currentUser).then().catch(error => setError(error.message))
                 console.log(res.user)
             }).catch(error => setError(error.message))
     }
 
-    const loginWIthEmailAndPassword = (email, password) => {
-        
+    const loginWIthEmailAndPassword = async (email, password) => {
+
         setloading(true)
-        signInWithEmailAndPassword(auth, email, password)
-            .then(res => setUser(res.user))
+        await signInWithEmailAndPassword(auth, email, password)
+            .then(res => {
+                setUser(res.user)
+                if (res.user) return true;
+            })
             .catch(error => setError(error.message))
     }
-    useEffect(()=>{
-        if(user ||error){
+    useEffect(() => {
+        if (user || error) {
             setloading(false)
         }
-    },[user,error])
-    if(error){
+    }, [user, error])
+    if (error) {
         toast.error(error)
     }
-    return { user,loading, userCreateWithEmailAndPassword, loginWIthEmailAndPassword,googleLogIn,githubLogIn }
+    return { user, loading, userCreateWithEmailAndPassword, loginWIthEmailAndPassword, googleLogIn, githubLogIn }
 }
 
 export default useFirebase;

@@ -18,17 +18,17 @@ const RequireAuth = ({ children }) => {
         return <Loading></Loading>
     }
 
+
     if (!user) {
         { toast('Please Login') }
         return <Navigate to='/login' state={{ from: location }} replace></Navigate>
     }
 
-    if(!user?.emailVerified){
+    if (!user?.emailVerified) {
         return <VerifyEmail></VerifyEmail>
     }
 
 
-    console.log(user)
     return (
         children
     );
