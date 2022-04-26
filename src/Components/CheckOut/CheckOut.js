@@ -15,7 +15,7 @@ const CheckOut = () => {
     const [user] = useAuthState(auth)
 
     useEffect(() => {
-        const url = `http://localhost:4000/service/${serviceId}`
+        const url = `https://car-service-asaduzzaman599.herokuapp.com/service/${serviceId}`
         axios.get(url)
             .then(({ data }) => {
                 setService(data)
@@ -30,7 +30,7 @@ const CheckOut = () => {
             phone: event.target.phone.value,
             address: event.target.address.value
         }
-        axios.post('http://localhost:4000/order', order)
+        axios.post('https://car-service-asaduzzaman599.herokuapp.com/order', order)
             .then(({ data }) => {
                 if (data.insertedId) {
 

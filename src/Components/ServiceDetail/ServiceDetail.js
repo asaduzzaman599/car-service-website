@@ -10,7 +10,7 @@ const ServiceDetail = () => {
     const [service, setService] = useState({})
 
     useEffect(() => {
-        const url = `http://localhost:4000/service/${serviceId}`
+        const url = `https://car-service-asaduzzaman599.herokuapp.com/service/${serviceId}`
         axios.get(url)
             .then(({ data }) => {
                 setService(data)

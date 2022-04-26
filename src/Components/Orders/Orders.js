@@ -11,7 +11,7 @@ const Orders = () => {
     const [user] = useAuthState(auth)
     const navigate = useNavigate()
     useEffect(() => {
-        const url = `http://localhost:4000/order?email=${user.email}`
+        const url = `https://car-service-asaduzzaman599.herokuapp.com/order?email=${user?.email}`
 
         axiosPrivate.get(url)
             .then(({ data }) => {
